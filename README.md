@@ -161,7 +161,7 @@ system:volume-scheduler                                                42d
 view                                                                   42d
 ```
 
-### 3、角色绑定
+### 3、普通角色绑定
 ```
 角色绑定包含了一组相关主体（即subject, 包括用户——User、用户组——Group、或者服务账户——Service Account）以及对被授予角色的引用
 
@@ -183,7 +183,24 @@ roleRef:
   kind: Role
   name: pod-reader-only
   apiGroup: rbac.authorization.k8s.io
-3.2 系统角色绑定
+
+3.2 查看集群所有RoleBinding
+kubectl get rolebinding --all-namespaces
+
+NAMESPACE     NAME                                                AGE
+default       pod-reader-only                                     91s
+kube-public   system:controller:bootstrap-signer                  42d
+kube-system   system::extension-apiserver-authentication-reader   42d
+kube-system   system::leader-locking-kube-controller-manager      42d
+kube-system   system::leader-locking-kube-scheduler               42d
+kube-system   system:controller:bootstrap-signer                  42d
+kube-system   system:controller:cloud-provider                    42d
+kube-system   system:controller:token-cleaner                     42d
+```
+
+### 4、系统角色绑定
+```
+4.1 系统角色绑定
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -196,19 +213,6 @@ roleRef:
    apiGroup: rbac.authorization.k8s.io
    kind: ClusterRole
    name: cluster-admin
-
-3.3 查看集群所有RoleBinding
-kubectl get rolebinding --all-namespaces
-
-NAMESPACE     NAME                                                AGE
-default       pod-reader-only                                     91s
-kube-public   system:controller:bootstrap-signer                  42d
-kube-system   system::extension-apiserver-authentication-reader   42d
-kube-system   system::leader-locking-kube-controller-manager      42d
-kube-system   system::leader-locking-kube-scheduler               42d
-kube-system   system:controller:bootstrap-signer                  42d
-kube-system   system:controller:cloud-provider                    42d
-kube-system   system:controller:token-cleaner                     42d
 
 3.4 查看集群所有ClusterRoleBinding 
 kubectl get clusterrolebinding --all-namespaces
