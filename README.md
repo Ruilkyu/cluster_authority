@@ -214,7 +214,7 @@ roleRef:
    kind: ClusterRole
    name: cluster-admin
 
-3.4 查看集群所有ClusterRoleBinding 
+4.2 查看集群所有ClusterRoleBinding 
 kubectl get clusterrolebinding --all-namespaces
 
 NAME                                                   AGE
