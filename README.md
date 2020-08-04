@@ -264,7 +264,7 @@ system:volume-scheduler                                42d
 
 ## 三、kubectl生成kube-config文件
 ```
-kubectl config set-cluster wdc  --server=https://169.62.51.219:6443 --certificate-authority=/kubernetes/kubernetes/ssl/ca.pem --embed-certs=true
+kubectl config set-cluster wdc  --server=https://*******:6443 --certificate-authority=/kubernetes/kubernetes/ssl/ca.pem --embed-certs=true
 
 kubectl config set-credentials wdc --token="$my_token"
 
