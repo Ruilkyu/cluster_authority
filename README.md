@@ -7,7 +7,7 @@ kubernetes集群用户权限梳理
 2、是普通用户（普通用户被假定为由外部独立服务管理）
 ```
 
-## master接口访问步骤(认证解决用户是谁的问题，授权解决用户能做什么的问题)
+## master接口访问步骤(认证解决用户是谁的问题，授权解决用户能做什么的问题, 准入控制解决资源管理问题)
 ```
 1、认证
 authenation
@@ -264,5 +264,11 @@ system:volume-scheduler                                42d
 
 ## 三、kubectl生成kube-config文件
 ```
+kubectl config set-cluster wdc  --server=https://169.62.51.219:6443 --certificate-authority=/kubernetes/kubernetes/ssl/ca.pem --embed-certs=true
 
+kubectl config set-credentials wdc --token="$my_token"
+
+kubectl config set-context wdc-context --cluster=wdc --user=wdc
+
+kubectl config use-context wdc-context
 ```
