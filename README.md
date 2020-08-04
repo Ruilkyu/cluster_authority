@@ -161,7 +161,7 @@ system:volume-scheduler                                                42d
 view                                                                   42d
 ```
 
-### 角色绑定
+### 3、角色绑定
 ```
 角色绑定包含了一组相关主体（即subject, 包括用户——User、用户组——Group、或者服务账户——Service Account）以及对被授予角色的引用
 
@@ -209,6 +209,7 @@ kube-system   system::leader-locking-kube-scheduler               42d
 kube-system   system:controller:bootstrap-signer                  42d
 kube-system   system:controller:cloud-provider                    42d
 kube-system   system:controller:token-cleaner                     42d
+
 3.4 查看集群所有ClusterRoleBinding 
 kubectl get clusterrolebinding --all-namespaces
 
